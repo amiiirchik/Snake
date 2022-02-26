@@ -30,8 +30,7 @@
 
     // Функции, вызванные при нажатии на выбор соло или кооп режима с задержкой в переходе
     solo.addEventListener('click', ()=> {
-        // setTimeout(Solo, 2000);
-        Solo();
+        setTimeout(Solo, 400);
     });
 
     coop.addEventListener('click', ()=> {
@@ -132,7 +131,7 @@
 
     function EasyGameSoloPlay() {
         easy.addEventListener('click', ()=> {
-            EasyGameSolo();
+            setTimeout(EasyGameSolo, 400);
             GameStartSoloPlayer1()
         });
     }

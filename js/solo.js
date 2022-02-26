@@ -1,5 +1,7 @@
 "use strict";
 
+let game;   //Луп игры
+
 function GameStartSoloPlayer1() {
 
 	let canvas = document.getElementById('canvas');
@@ -9,7 +11,6 @@ function GameStartSoloPlayer1() {
 
 	let bg = new Image();
 	bg.src = "../img/bg.jpg";
-// let bg = new Image(); bg.src = "../bg.jpg";
 	let foodApple = new Image();
 	foodApple.src = "../img/apple.png";
 	let foodBanana = new Image();
@@ -29,7 +30,7 @@ function GameStartSoloPlayer1() {
 		gameInterval = 100,
 		flag;
 
-// Спавн яблока
+	// Спавн яблока
 	let apple = {
 		x: RandomNum(1, 30) * cellSize,
 		y: RandomNum(1, 25) * cellSize
@@ -105,7 +106,8 @@ function GameStartSoloPlayer1() {
 			context.fillStyle = "red";
 			context.fillRect(snake[i].x, snake[i].y, cellSize, cellSize);
 		}
-		score_p.innerHTML = `Points: ${score}`;                       //Очки
+
+		score_p.innerHTML = score;           //Очки
 
 		let snakeHeadX = snake[0].x;
 		let snakeHeadY = snake[0].y;
@@ -133,13 +135,13 @@ function GameStartSoloPlayer1() {
 				x: RandomNum(1, 30) * cellSize,
 				y: RandomNum(1, 25) * cellSize
 			}
-			fetch('/index.php', method: 'POST', )
+			// fetch('/index.php', method: 'POST', )
 
 		} else snake.pop();
 
 		// При поедании банана
 		if (snakeHeadX == banana.x && snakeHeadY == banana.y) {
-			date.setSeconds(date.getSeconds() + 5);
+			date.setSeconds(seconds + 5);
 			banana = {
 				x: RandomNum(1, 30) * cellSize,
 				y: RandomNum(1, 25) * cellSize
@@ -148,8 +150,7 @@ function GameStartSoloPlayer1() {
 
 		// При поедании камня
 		if (snakeHeadX == stone.x && snakeHeadY == stone.y) {
-			score -= 5;
-			snake.splice(snake.length - 5,5);
+			TakeDmg(5);
 
 			stone = {
 				x: RandomNum(1, 30) * cellSize,
@@ -158,8 +159,7 @@ function GameStartSoloPlayer1() {
 		}
 
 		if (snakeHeadX == stone2.x && snakeHeadY == stone2.y) {
-			score -= 5;
-			snake.splice(snake.length - 5,5);
+			TakeDmg(5);
 
 			stone2 = {
 				x: RandomNum(1, 30) * cellSize,
@@ -168,8 +168,7 @@ function GameStartSoloPlayer1() {
 		}
 
 		if (snakeHeadX == stone3.x && snakeHeadY == stone3.y) {
-			score -= 5;
-			snake.splice(snake.length - 5,5);
+			TakeDmg(5);
 
 			stone3 = {
 				x: RandomNum(1, 30) * cellSize,
@@ -178,15 +177,13 @@ function GameStartSoloPlayer1() {
 		}
 
 		if (snakeHeadX == stone4.x && snakeHeadY == stone4.y) {
-			score -= 5;
-			snake.splice(snake.length - 5,5);
+			TakeDmg(5);
 
 			stone4 = {
 				x: RandomNum(1, 30) * cellSize,
 				y: RandomNum(1, 25) * cellSize
 			}
 		}
-
 
 		if (score < 0) {
 			RestartGame();
@@ -212,32 +209,28 @@ function GameStartSoloPlayer1() {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 
+	// Функций дамага
+	function TakeDmg(damage){
+		score -= damage;
+		snake.splice(snake.length - damage, damage);
+	}
+
 
 	function RestartGame() {
+		alert(`Вы проиграли. Очков: ${score}`);
 		clearInterval(game);
 		score_p.textContent = '';
 		score_p.textContent = 'Вы проиграли';
-		reload_interval()
-		// let againBtn = document.createElement('input'); againBtn.setAttribute('type', 'button'); againBtn.value = 'Заново'; againBtn.classList.add('againBtn');
-		// againBtn.addEventListener('click', again);
-		// function again(){
-		// 	againBtn.removeEventListener('click', again);
-		// 	againBtn.style.display = "none";
-		// 	// Доработать
-		// 	document.location.reload();
-		// }
-		// document.body.appendChild(againBtn);
+		reload_interval();
 	}
+
+	//Проверка на выход из поля
 
 
 //Перезагружает страницу спустя n-время;
 	function reload_interval() {
-		setTimeout(function () {
-			location.reload();
-		}, 4000);
+		setTimeout(()=>{ location.reload(); }, 4000);
 	}
 
-
-	let game = setInterval(Game, 100);
-
+	game = setInterval(Game, 100);
 }
