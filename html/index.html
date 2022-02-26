@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <span id="span-player1"></span>
+                    <p id="p-player1"></p>
+                    <p id ='score-player1'></p>
+                </div>
+                <div class="header-center">
+                    <p id="p-timer"></p>
+                </div>
+                <div class="header-right">
+                    <span id="span-player2"></span>
+                    <p id="p-player2"></p>
+                    <p id ='score-player2'></p>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <canvas id="canvas" width="1000" height="800"></canvas>
+        </div>
+        <div class="modal-window">
+            <div class="modal-window-content">
+
+                <!--Game-mode-->
+                <h1 id="game_mode_tittle">SNAKE GAME</h1>
+                <button id = "solo" class="game-mode">Одиночная игра</button>
+                <button id = "coop" class="game-mode">Совместная игра</button>
+
+                <!--Solo-player-->
+                <h1 id ='solo-name'>Введите имя:</h1>
+                <input type="text" id="solo-player" placeholder="Ваше имя">
+                <button id="solo-next">Далее</button>
+
+                <!--Multi-players-->
+                <h1 id ='multi-player'>Введите имена:</h1>
+                <input type="text" id="player1" class="players" placeholder="Имя игрока 1">
+                <input type="text" id="player2" class="players" placeholder="Имя игрока 2">
+                <button id="multi-players-next">Далее</button>
+
+                <!--Difficulty settings-->
+                <h1 id="difficulty">Выберите режим сложности</h1>
+                <button id = "easy" class="game-settings">Лёгкий</button>
+                <button id = "hard" class="game-settings">Тяжелый</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../js/solo.js"></script>
+    <script src="../js/coop.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/modal-windows.js"></script>
+</body>
+</html>
