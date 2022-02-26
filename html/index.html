@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/interface.css">
+    <title>Snake Game</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- ========================== Главный Контэйнер ========================== -->
+<div class="mainContainer flexCenter">
+
+    <!-- ========================== Контэйнер Меню Игры ========================== -->
+    <div class="mainGameMenuContainer flexCenter">
+
+        <!-- ========================== Главное Меню Игры ========================== -->
+
+        <div class="mainGameMenu" id="mainGameMenu">
+            <!-- Название Snake Game -->
+            <div class="SnakeGameTitle flexCenter">Snake Game</div>
+            <!-- Кнопка Меню Игры -->
+            <div class="optionsButton button" id="singlePlayerButton">
+                <!-- Нажимной Элемент Кнопки Меню Игры -->
+                <div class="buttonPressElement flexCenter">Одиночная Игра</div>
+                <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                <div class="buttonPlateElement flexCenter"></div>
+            </div>
+            <!-- Кнопка Меню Игры -->
+            <div class="optionsButton button" id="multiPlayerButton">
+                <!-- Нажимной Элемент Кнопки Меню Игры -->
+                <div class="buttonPressElement flexCenter">Совместная Игра</div>
+                <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                <div class="buttonPlateElement flexCenter"></div>
+            </div>
+        </div>
+
+        <!-- ========================== Меню Выбора Имени ========================== -->
+
+        <div class="selectNickNameMenu hidden" id="selectNickNameMenu">
+            <!-- Заголовок Меню -->
+            <div class="menuTitle flexCenter">Выберите имя:</div>
+            <!-- Контэйнер Поля Ввода Меню Игры и Предупреждения -->
+            <div class="inputContainer">
+                <!-- Поле Ввода Меню Игры -->
+                <input class="optionsInput" id="singleNickNameInput" placeholder="Ваше Имя" type="text">
+                <!-- Поле Предупреждения Ввода -->
+                <div class="inputWarning" id="singleNickNameInputWarning">ер</div>
+            </div>
+            <!-- Контэйнер Кнопки Далее и Вернуться -->
+            <div class="nextButtonsContainer">
+                <!-- Кнопка Далее в Меню Выбора Имени -->
+                <div class="nextButton button" id="selectNickNameNextButton">
+                    <!-- Нажимной Элемент Кнопки Меню Игры -->
+                    <div class="buttonPressElement buttonOffPressElement flexCenter" id="selectNickNameNextButtonPressElement">Далее</div>
+                    <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                    <div class="buttonPlateElement buttonOffPlateElement flexCenter" id="selectNickNameNextButtonPlateElement"></div>
+                </div>
+                <!-- Кнопка Возвращения в Главное Меню -->
+                <div class="backButton button" id="selectNickNameBackButton">
+                    <!-- Нажимной Элемент Кнопки Меню Игры -->
+                    <div class="buttonPressElement flexCenter">
+                        <img alt="" src="../img/ArrowBack.png">
+                    </div>
+                    <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                    <div class="buttonPlateElement flexCenter"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================== Меню Выбора Сложности ========================== -->
+        <div class="selectDifficultyMenu hidden" id="selectDifficultyMenu">
+            <!-- Заголовок Меню -->
+            <div class="menuTitle flexCenter">Выберите сложность:</div>
+            <!-- Контэйнер Выбора Сложности Игры -->
+            <div class="selectDifficultyContainer" id="selectDifficultyContainer">
+                <!-- Кнопка Выбора Сложности Игры -->
+                <div class="smallButton difficultyEasyButton" id="difficultyButton">
+                    <!-- Нажимной Элемент Кнопки Меню Игры -->
+                    <div class="smallButtonPressElement greenPress flexCenter" id="difficultyButtonPress">
+                        <img alt="" id="difficultySmile" src="../img/EasyDifficulty.png">
+                    </div>
+                    <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                    <div class="smallButtonPlateElement greenPlate" id="difficultyButtonPlate"></div>
+                </div>
+                <!-- Кнопка Возвращения в Меню Выбора Имени -->
+                <div class="smallButton bottom" id="selectDifficultyBackButton">
+                    <!-- Нажимной Элемент Кнопки Меню Игры -->
+                    <div class="smallButtonPressElement bluePress flexCenter">
+                        <img alt="" src="../img/ArrowBack.png">
+                    </div>
+                    <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                    <div class="smallButtonPlateElement bluePlate flexCenter"></div>
+                </div>
+            </div>
+            <!-- Кнопка Старта -->
+            <div class="optionsButton button height20" id="selectDifficultyStartButton">
+                <!-- Нажимной Элемент Кнопки Меню Игры -->
+                <div class="buttonPressElement flexCenter">Играть</div>
+                <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                <div class="buttonPlateElement flexCenter"></div>
+            </div>
+        </div>
+
+        <!-- ========================== Интерфейс Игры ========================== -->
+        <!--Хедер игры-->
+
+<!--        <header class="header">-->
+<!--            <div class="header-content">-->
+<!--                <div class="header-left">-->
+<!--                    <span id="span-player1"></span>-->
+<!--                    <p id="p-player1"></p>-->
+<!--                    <p id ='score-player1'></p>-->
+<!--                </div>-->
+<!--                <div class="header-center">-->
+<!--                    <p id="p-timer"></p>-->
+<!--                </div>-->
+<!--                <div class="header-right">-->
+<!--                    <span id="span-player2"></span>-->
+<!--                    <p id="p-player2"></p>-->
+<!--                    <p id ='score-player2'></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </header>-->
+
+        <div class="main hidden" id="GameField">
+            <canvas id="canvas" width="1000" height="800">
+                <p id="p-player1"></p>
+                <p id ='score-player1'></p>
+            </canvas>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <script src="../js/interface.js"></script>
+    <script src="../js/solo.js"></script>
+    <script src="../js/coop.js"></script>
+    <script src="../js/timer.js"></script>
+</body>
+</html>
