@@ -135,7 +135,17 @@ function GameStartSoloPlayer1() {
 				x: RandomNum(1, 30) * cellSize,
 				y: RandomNum(1, 25) * cellSize
 			}
-			// fetch('/index.php', method: 'POST', )
+
+			// fetch('file:///C:/Users/ramir/Desktop/Snake/Snake/html/index.html')
+			// .then((response) => {
+			// 	return response;
+			// })
+			// .then((data) => {
+			// 	console.log('Я съел яблоко');
+			// })
+			// .catch((error) => {
+			// 	alert('К сожалению произошла ошибка: ' + error);
+			// });
 
 		} else snake.pop();
 
