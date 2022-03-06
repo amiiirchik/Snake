@@ -1,13 +1,29 @@
 "use strict";
 
-function GameStartSoloPlayer1() {
+let scoreWindowContainer = document.getElementById('scoreWindowContainer');
+let returnMainMenuButton = document.getElementById('returnMainMenuButton');
+let retryButton = document.getElementById('retryButton');
+let playerRecord = document.getElementById('playerRecord');
+let playerScore = document.getElementById('playerScore');
+let record = 0;
 
+function GameStartSoloPlayer1()
+{
+	retryButton.removeEventListener('click', GameStartSoloPlayer1);
+	scoreWindowContainer.classList.add('hidden');
+	// document.location.reload();
+
+	let mainGameMenuContainer = document.getElementById('mainGameMenuContainer');
+	mainGameMenuContainer.classList.add('hidden');
 	let canvas = document.getElementById('canvas');
-	document.getElementById('GameField').classList.remove('hidden');
+	let GameField = document.getElementById('GameField');
+	GameField.classList.remove('hidden');
 	selectDifficultyMenu.classList.add('hidden');
+	mainGameMenuContainer.classList.add('hidden');
+	gameTimer();
 	console.log(canvas);
 	let context = canvas.getContext('2d');
-	let score_p = document.getElementById('score-player1');
+	let score_p = document.getElementById('playerScore1');
 
 	let bg = new Image();
 	bg.src = "../img/bg.jpg";
@@ -74,20 +90,20 @@ function GameStartSoloPlayer1() {
 	document.addEventListener('keydown', control);
 
 	function control(e) {
-		if (e.keyCode == 37 && flag != 'right') {
+		if (e.keyCode === 37 && flag !== 'right') {
 			flag = 'left';
-		} else if (e.keyCode == 38 && flag != 'down') {
+		} else if (e.keyCode === 38 && flag !== 'down') {
 			flag = 'up';
-		} else if (e.keyCode == 39 && flag != 'left') {
+		} else if (e.keyCode === 39 && flag !== 'left') {
 			flag = 'right';
-		} else if (e.keyCode == 40 && flag != 'up') {
+		} else if (e.keyCode === 40 && flag !== 'up') {
 			flag = 'down';
 		}
 	}
 
 	function TailReset(head, arr) {
 		for (let i = 0; i < arr.length; i++) {
-			if (head.x == arr[i].x && head.y == arr[i].y) {
+			if (head.x === arr[i].x && head.y === arr[i].y) {
 				RestartGame();
 			}
 		}
@@ -104,16 +120,17 @@ function GameStartSoloPlayer1() {
 
 
 		for (let i = 0; i < snake.length; i++) {
-			context.fillStyle = "#006575";
+			context.fillStyle = "#005565";
 			context.fillRect(snake[i].x, snake[i].y, cellSize, cellSize);
 		}
-		score_p.innerHTML = `Points: ${score}`;                       //Очки
+		score_p.innerHTML = `СЧЁТ: ${score}`;                       //Очки
 
 		let snakeHeadX = snake[0].x;
 		let snakeHeadY = snake[0].y;
 
 		// При поедании яблока
 		if (snakeHeadX === apple.x && snakeHeadY === apple.y) {
+			record++;
 			score++;
 			apple = {
 				x: RandomNum(1, 30) * cellSize,
@@ -139,7 +156,7 @@ function GameStartSoloPlayer1() {
 		} else snake.pop();
 
 		// При поедании банана
-		if (snakeHeadX == banana.x && snakeHeadY == banana.y) {
+		if (snakeHeadX === banana.x && snakeHeadY === banana.y) {
 			//+ 5 секунд
 			banana = {
 				x: RandomNum(1, 30) * cellSize,
@@ -148,7 +165,7 @@ function GameStartSoloPlayer1() {
 		}
 
 		// При поедании камня
-		if (snakeHeadX == stone.x && snakeHeadY == stone.y) {
+		if (snakeHeadX === stone.x && snakeHeadY === stone.y) {
 			score -= 5;
 			stone = {
 				x: RandomNum(1, 30) * cellSize,
@@ -158,7 +175,7 @@ function GameStartSoloPlayer1() {
 			console.log(snake.length);
 		}
 
-		if (snakeHeadX == stone2.x && snakeHeadY == stone2.y) {
+		if (snakeHeadX === stone2.x && snakeHeadY === stone2.y) {
 			score -= 5;
 			stone2 = {
 				x: RandomNum(1, 30) * cellSize,
@@ -166,7 +183,7 @@ function GameStartSoloPlayer1() {
 			}
 		}
 
-		if (snakeHeadX == stone3.x && snakeHeadY == stone3.y) {
+		if (snakeHeadX === stone3.x && snakeHeadY === stone3.y) {
 			score -= 5;
 			stone3 = {
 				x: RandomNum(1, 30) * cellSize,
@@ -180,10 +197,10 @@ function GameStartSoloPlayer1() {
 		}
 
 		// Движение
-		if (flag == 'left') snakeHeadX -= cellSize;
-		if (flag == 'right') snakeHeadX += cellSize;
-		if (flag == 'up') snakeHeadY -= cellSize;
-		if (flag == 'down') snakeHeadY += cellSize;
+		if (flag === 'left') snakeHeadX -= cellSize;
+		if (flag === 'right') snakeHeadX += cellSize;
+		if (flag === 'up') snakeHeadY -= cellSize;
+		if (flag === 'down') snakeHeadY += cellSize;
 
 		let newHead = {
 			x: snakeHeadX,
@@ -191,7 +208,6 @@ function GameStartSoloPlayer1() {
 		}
 
 		TailReset(newHead, snake);
-
 		snake.unshift(newHead);
 	}
 
@@ -202,29 +218,26 @@ function GameStartSoloPlayer1() {
 
 	function RestartGame() {
 		clearInterval(game);
-		score_p.textContent = '';
-		score_p.textContent = 'Вы проиграли';
-		reload_interval()
-		// let againBtn = document.createElement('input'); againBtn.setAttribute('type', 'button'); againBtn.value = 'Заново'; againBtn.classList.add('againBtn');
-		// againBtn.addEventListener('click', again);
-		// function again(){
-		// 	againBtn.removeEventListener('click', again);
-		// 	againBtn.style.display = "none";
-		// 	// Доработать
-		// 	document.location.reload();
-		// }
-		// document.body.appendChild(againBtn);
+		playerRecord.textContent = 'ВАШ РЕКОРД: ' + record;
+		playerScore.textContent = 'ВАШ СЧЁТ: ' + record;
+		scoreWindowContainer.classList.remove('hidden');
+		// score_p.textContent = '';
+		// score_p.textContent = 'ИГРА ОКОНЧЕНА!';
+		// let reloadGame = setTimeout(ReloadInterval, 5000);
+		retryButton.addEventListener('click', GameStartSoloPlayer1);
+		returnMainMenuButton.addEventListener('click', Reload);
+		//function again()
+		//{
+		//	  clearTimeout(reloadGame);
+		//}
+		// document.body.appendChild(retryButton);
 	}
 
 
 //Перезагружает страницу спустя n-время;
-	function reload_interval() {
-		setTimeout(function () {
-			location.reload();
-		}, 4000);
+	function Reload()
+	{
+		location.reload();
 	}
-
-
 	let game = setInterval(Game, 100);
-
 }

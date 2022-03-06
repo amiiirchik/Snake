@@ -1,5 +1,8 @@
 /* HTML, Body */
 html, body {
+    background-color: #00455A;
+    max-height: 1080px;
+    overflow: hidden;
     display: flex;
     height: 100%;
     width: 100%;
@@ -60,6 +63,7 @@ html, body {
 .buttonPressElement {
     background-color: #004575;
     border: 5px solid #006595;
+    text-align: center;
     transition: .2s;
     font-size: 30px;
     color: #FFFFFF;
@@ -193,7 +197,6 @@ html, body {
     display: flex;
     height: 205px;
     width: 205px;
-    flex-display: row;
 }
 .height20 {
     height: 25%;
@@ -338,11 +341,11 @@ html, body {
     height: 70%;
 }
 .smallButton:active .smallButtonPlateElement {
-    height: 0;
     border-bottom: 0 #DDDDDD;
     background-color: #DDDDDD;
     width: calc(100% + 10px);
     transition: .2s;
+    height: 0;
 }
 /* Меню Выбора Сложности */
 .difficultyBackButton {
@@ -373,17 +376,119 @@ html, body {
     height: 100%;
     width: 14%;
 }
+header {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 5%;
+}
+.headerContent {
+    font-family: Verdana, sans-serif;
+    border-right: 5px solid #00858A;
+    border-left: 5px solid #00858A;
+    justify-content: space-evenly;
+    background-color: #00657A;
+    display: flex;
+    color: #FFFFFF;
+    width: 1180px;
+}
+.playerDisplay {
+    border-right: 5px solid #00858A;
+    border-left: 5px solid #00858A;
+    justify-content: space-evenly;
+    display: flex;
+    height: 100%;
+    width: 38%;
+}
+#playerIcon1, #playerIcon2 {
+    background-image: url("../img/EasyDifficulty.png");
+    background-size: 100% 100%;
+    height: 100%;
+    width: 11%;
+}
+.playerNickName {
+    border-right: 5px solid #00858A;
+    border-left: 5px solid #00858A;
+    text-align: center;
+    height: 100%;
+    width: 52%;
+}
+.playerScore {
+    text-align: center;
+    height: 100%;
+    width: 35%;
+}
+
+.timer {
+    height: 100%;
+    width: 20%;
+}
 /* Игровое Поле */
 .GameField {
-    background: green;
+    background-color: #00455A;
     flex-direction: column;
+    align-items: center;
     display: flex;
-    height: 50%;
+    height: 100%;
     width: 100%;
 }
 #canvas {
+    border: 5px solid #00858A;
+    height: 900px;
+    width: 1180px;
+}
+.scoreWindowContainer {
+    background-color: rgba(245, 245, 245, .55);
+    align-items: center;
+    position: absolute;
+    display: flex;
     height: 50%;
+    width: 40%;
+    top: 25%;
+}
+.scoreWindow {
+    background-color: #DDDDDD;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    height: 82%;
     width: 100%;
+}
+/* Заголовок Окна Счёта */
+.scoreWindowTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    color: #004575;
+    height: 35%;
+    width: 80%;
+}
+/* Строка Окна Счёта */
+.scoreWindowRow {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #004575;
+    height: 10%;
+    width: 80%;
+}
+/* Строка Окна Счёта */
+.scoreWindowButtonsContainer {
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    color: #004575;
+    display: flex;
+    height: 30%;
+    width: 80%;
+}
+/* Кнопки Окна Счёта */
+.retryButton, .recordsTableButton, .returnMainMenuButton {
+    margin-top: 6%;
+    height: 70%;
+    width: 31%;
+}
+/* 24-й Шрифт */
+.font24 {
+    font-size: 18px;
 }
 /* Спрятанные Элементы */
 .hidden {

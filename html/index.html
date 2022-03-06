@@ -11,7 +11,7 @@
 <div class="mainContainer flexCenter">
 
     <!-- ========================== Контэйнер Меню Игры ========================== -->
-    <div class="mainGameMenuContainer flexCenter">
+    <div class="mainGameMenuContainer flexCenter" id="mainGameMenuContainer">
 
         <!-- ========================== Главное Меню Игры ========================== -->
 
@@ -101,50 +101,77 @@
                 <div class="buttonPlateElement flexCenter"></div>
             </div>
         </div>
-
-        <!-- ========================== Интерфейс Игры ========================== -->
-        <!--Хедер игры-->
-
-<!--        <header class="header">-->
-<!--            <div class="header-content">-->
-<!--                <div class="header-left">-->
-<!--                    <span id="span-player1"></span>-->
-<!--                    <p id="p-player1"></p>-->
-<!--                    <p id ='score-player1'></p>-->
-<!--                </div>-->
-<!--                <div class="header-center">-->
-<!--                    <p id="p-timer"></p>-->
-<!--                </div>-->
-<!--                <div class="header-right">-->
-<!--                    <span id="span-player2"></span>-->
-<!--                    <p id="p-player2"></p>-->
-<!--                    <p id ='score-player2'></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </header>-->
     </div>
+
+    <!-- ========================== Игровое Поле ========================== -->
+
     <div class="GameField hidden" id="GameField">
-        <header class="header">
-            <div class="header-content">
-                <div class="header-left">
-                    <span id="span-player1"></span>
-                    <p id="p-player1"></p>
-                    <p id ='score-player1'></p>
+        <!-- Хэдер Игры -->
+        <header>
+            <!-- Обёртка Хэдера -->
+            <div class="headerContent">
+                <!-- 1-й Игрок -->
+                <div class="playerDisplay" id="player1">
+                    <!-- Иконка 1-го Игрока -->
+                    <div id="playerIcon1"></div>
+                    <!-- Ник 1-го Игрока -->
+                    <div class="playerNickName flexCenter" id="playerNickName1"></div>
+                    <!-- Счёт 1-го Игрока -->
+                    <div class="playerScore flexCenter" id ='playerScore1'></div>
                 </div>
-                <div class="header-center">
-                    <p id="p-timer"></p>
-                </div>
-                <div class="header-right">
-                    <span id="span-player2"></span>
-                    <p id="p-player2"></p>
-                    <p id ='score-player2'></p>
+                <!-- Таймер -->
+                <div class="timer flexCenter" id="gameTimer">ВРЕМЯ: 00:00:10</div>
+                <!-- 2-й Игрок -->
+                <div class="playerDisplay" id="player2">
+                    <!-- Иконка 2-го Игрока -->
+                    <div id="playerIcon2"></div>
+                    <!-- Ник 2-го Игрока -->
+                    <div class="playerNickName flexCenter" id="playerNickName2"></div>
+                    <!-- Счёт 2-го Игрока -->
+                    <div class="playerScore flexCenter" id ='playerScore2'></div>
                 </div>
             </div>
         </header>
-        <canvas id="canvas">
-            <!--                <p id="p-player1"></p>-->
-            <!--                <p id ='score-player1'></p>-->
-        </canvas>
+        <!-- Канвас -->
+        <canvas id="canvas" height="900" width="1200"></canvas>
+        <!-- Контэйнер Окна Счёта -->
+        <div class="scoreWindowContainer hidden" id="scoreWindowContainer">
+            <!-- Окно Счёта -->
+            <div class="scoreWindow">
+                <!-- Заголовок Окна Счёта -->
+                <div class="scoreWindowTitle flexCenter">ИГРА ОКОНЧЕНА!</div>
+                <!-- Строка Окна Счёта -->
+                <div class="scoreWindowRow">ВРЕМЯ В ИГРЕ: XX:XX:XX</div>
+                <!-- Строка Окна Счёта -->
+                <div class="scoreWindowRow" id="playerRecord">ВАШ РЕКОРД: 0</div>
+                <!-- Строка Окна Счёта -->
+                <div class="scoreWindowRow" id="playerScore">ВАШ СЧЁТ: 0</div>
+                <!-- Контэйнер Кнопки Заново и Таблица Рекордов -->
+                <div class="scoreWindowButtonsContainer">
+                    <!-- Кнопка Заново Окна Счёта -->
+                    <div class="button retryButton" id="retryButton">
+                        <!-- Нажимной Элемент Кнопки Меню Игры -->
+                        <div class="buttonPressElement font24 flexCenter">ЗАНОВО</div>
+                        <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                        <div class="buttonPlateElement flexCenter"></div>
+                    </div>
+                    <!-- Кнопка Таблицы Рекордов Окна Счёта -->
+                    <div class="button recordsTableButton" id="recordsTableButton">
+                        <!-- Нажимной Элемент Кнопки Меню Игры -->
+                        <div class="buttonPressElement font24 flexCenter">ТАБЛИЦА РЕКОРДОВ</div>
+                        <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                        <div class="buttonPlateElement flexCenter"></div>
+                    </div>
+                    <!-- Кнопка перехода в Главное Меню Окна Счёта -->
+                    <div class="button returnMainMenuButton" id="returnMainMenuButton">
+                        <!-- Нажимной Элемент Кнопки Меню Игры -->
+                        <div class="buttonPressElement font24 flexCenter">ГЛАВНОЕ МЕНЮ</div>
+                        <!-- Проваливающийся Элемент Кнопки Меню Игры -->
+                        <div class="buttonPlateElement flexCenter"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

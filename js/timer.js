@@ -33,18 +33,17 @@
 
 
 // таймер игры
-let gameTimerP = document.querySelector('#p-timer');
+let gameTimerP = document.querySelector('#gameTimer');
 
 let date = new Date(0,0, 0, 0,0,10,0);
 let seconds = date.getSeconds();
 let minutes = date.getMinutes();
 
-easy.addEventListener('click', gameTimer);
 function gameTimer(){
   let gameTimerId = setInterval(function(){
 
     date.setSeconds(date.getSeconds()-1);
-    gameTimerP.textContent = addZero(date.getHours()) + ':' + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds());
+    gameTimerP.textContent = 'ВРЕМЯ: ' + addZero(date.getHours()) + ':' + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds());
   }, 1000);
 
   stopTimer();
@@ -53,7 +52,7 @@ function gameTimer(){
   function stopTimer(){
     if(seconds <= 0) {
       clearInterval(gameTimerId);
-      gameTimerP.textContent = 'Игра окончена';
+      gameTimerP.textContent = 'Игра окончена!';
     }
   }
 

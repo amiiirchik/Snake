@@ -22,8 +22,11 @@ let selectNickNameNextButtonPlateElement = document.getElementById('selectNickNa
 singlePlayerButton.addEventListener('click', StartSingleOptions);
 function StartSingleOptions()
 {
-    mainGameMenu.classList.toggle('hidden');
-    selectNickNameMenu.classList.toggle('hidden');
+    setTimeout(() =>
+    {
+        mainGameMenu.classList.toggle('hidden');
+        selectNickNameMenu.classList.toggle('hidden');
+    }, 200)
 }
 
 // Возвращение в Главное Меню из Меню Выбора Имени
@@ -31,9 +34,12 @@ function StartSingleOptions()
 selectNickNameBackButton.addEventListener('click', ReturnMainMenu);
 function ReturnMainMenu()
 {
-    mainGameMenu.classList.toggle('hidden');
-    selectNickNameMenu.classList.remove('hidden');
-    selectDifficultyMenu.classList.remove('hidden');
+    setTimeout(() =>
+    {
+        mainGameMenu.classList.toggle('hidden');
+        selectNickNameMenu.classList.remove('hidden');
+        selectDifficultyMenu.classList.remove('hidden');
+    }, 200)
 }
 
 // Валидация Имени в Меню Выбора Имени Одиночной Игры
@@ -104,7 +110,8 @@ function singleNickNameValidation()
         selectNickNameNextButtonPressElement.classList.remove('buttonOffPressElement');
         selectNickNameNextButtonPlateElement.classList.remove('buttonOffPlateElement');
         selectNickNameNextButton.addEventListener('click', SelectDifficulty);
-        singleNickName = checkString;
+        let playerNickName1 = document.getElementById('playerNickName1');
+        playerNickName1.textContent = 'ИГРОК: ' + checkString;
     }
 }
 
@@ -123,10 +130,13 @@ let selectDifficultyContainer = document.getElementById('selectDifficultyContain
 
 function SelectDifficulty()
 {
-    selectDifficultyMenu.classList.toggle('hidden');
-    selectNickNameMenu.classList.toggle('hidden');
-    difficultyButton.addEventListener('click', MediumDifficulty);
-    selectDifficultyStartButton.addEventListener('click', GameStartSoloPlayer1)
+    setTimeout(() =>
+    {
+        selectDifficultyMenu.classList.toggle('hidden');
+        selectNickNameMenu.classList.toggle('hidden');
+        difficultyButton.addEventListener('click', MediumDifficulty);
+        selectDifficultyStartButton.addEventListener('click', GameStartSoloPlayer1)
+    }, 200)
 }
 
 //Легкая сложность
@@ -188,27 +198,28 @@ selectDifficultyBackButton.addEventListener('click', ReturnNickNameMenu)
 selectNickNameBackButton.addEventListener('click', ReturnNickNameMenu);
 function ReturnNickNameMenu()
 {
-    selectDifficultyMenu.classList.toggle('hidden');
-    selectNickNameMenu.classList.toggle('hidden');
+    setTimeout(() =>
+    {
+        selectDifficultyMenu.classList.toggle('hidden');
+        selectNickNameMenu.classList.toggle('hidden');
+    }, 200)
 }
 
-function Solo() {
-    // document.querySelector('.wrapper').style.background = 'none';
-    game_mode.style.display ='none';
-    solo.style.display = 'none';
-    coop.style.display = 'none';
-
-
-    solo_name.style.display = 'block';
-    solo_player.style.display = 'block';
-    solo_next.style.display = 'block';
-
-    mainGameMenuContainer.classList.add('hidden');
-
-    solo_next.addEventListener('click', ()=>{
-        // setTimeout(SoloNext, 2000);
-        SoloNext();
-    });
-
-    EasyGameSoloPlay()
-}
+// function Solo() {
+//     // document.querySelector('.wrapper').style.background = 'none';
+//     game_mode.style.display ='none';
+//     solo.style.display = 'none';
+//     coop.style.display = 'none';
+//
+//
+//     solo_name.style.display = 'block';
+//     solo_player.style.display = 'block';
+//     solo_next.style.display = 'block';
+//
+//     solo_next.addEventListener('click', ()=>{
+//         // setTimeout(SoloNext, 2000);
+//         SoloNext();
+//     });
+//
+//     EasyGameSoloPlay()
+// }
