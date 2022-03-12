@@ -1,0 +1,15 @@
+{"entity":{"type":"Apple","coords":{"x":864,"y":544}}}
+{"entity":{"type":"Apple","coords":{"x":192,"y":256}}}
+{"entity":{"type":"Apple","coords":{"x":352,"y":704}}}
+{"entity":{"type":"Apple","coords":{"x":416,"y":448}}}
+
+
+
+
+
+
+
+
+{"user":"Пауль","entity":{"type":"Apple","coords":{"x":384,"y":352}}}
+{"user":"Пауль","entity":{"type":"Apple","coords":{"x":864,"y":704}}}
+{"user":"Пауль","entity":{"type":"Apple","coords":{"x":928,"y":64}}}
